@@ -31,3 +31,13 @@ Service / API
 
 
 gRPC
+
+
+Windows Service
+
+	Deploy & Run
+
+		Developer CMD for VS 2022
+			cd -> folder debug
+
+			installutil 
