@@ -1,0 +1,33 @@
+Service / API
+	Socket
+		ping -> pong
+	SOAP - Simple Object Access Ptotocol
+		RPC - Remote Procedure Call
+		XML
+	Restfull
+		*json
+		web - verb http
+
+		//CRUD
+		get /posts -> all post 
+		post /posts -> add post
+		get /posts/1 -> post bt id 1
+		put /posts
+		patch /posts
+		delete /posts/1 -> delete post id 1
+
+
+		post /posts/my-custom-function
+
+		get /procut
+		delete /procut/1
+
+		swaggerUI / OpenAPI
+
+	gRPC
+		*binray - protobuf
+		*http2 - speed
+		microserive
+
+
+gRPC
