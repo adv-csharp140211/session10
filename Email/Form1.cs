@@ -12,8 +12,8 @@ public partial class Form1 : Form
 
     private void buttonSend_Click(object sender, EventArgs e)
     {
-        var user = "leora.ohara@ethereal.email";
-        var pass = "Hwn1byUCgF8Gy8EnFH";
+        var user = "koby.bode@ethereal.email";
+        var pass = "63RHdDdhEbYJtsAsXy";
         var host = "smtp.ethereal.email";
 
         var message = new MailMessage
