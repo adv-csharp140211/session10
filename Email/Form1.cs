@@ -1,9 +1,5 @@
 using System.Net;
-using MailKit.Net.Smtp;
-using MailKit;
 using System.Net.Mail;
-using SmtpClient = MailKit.Net.Smtp.SmtpClient;
-using MimeKit;
 
 namespace Email;
 
@@ -16,47 +12,25 @@ public partial class Form1 : Form
 
     private void buttonSend_Click(object sender, EventArgs e)
     {
-        var user = "nyah.kozey48@ethereal.email";
-        var pass = " S2FYe6Aba3kNdjjs1a";
+        var user = "leora.ohara@ethereal.email";
+        var pass = "Hwn1byUCgF8Gy8EnFH";
         var host = "smtp.ethereal.email";
 
-        //var message = new MailMessage
-        //{
-        //    Subject = textBoxSubject.Text,
-        //    Body = textBoxBody.Text,
-        //    From = new MailAddress(user),
-        //};
-        //message.To.Add(textBoxTo.Text);
-
-
-        var message = new MimeMessage();
-        message.From.Add(new MailboxAddress("Joey Tribbiani", user));
-        message.To.Add(new MailboxAddress(textBoxTo.Text, textBoxTo.Text));
-        message.Subject = textBoxSubject.Text;
-
-        message.Body = new TextPart("plain")
+        var message = new MailMessage
         {
-            Text = textBoxBody.Text
+            Subject = textBoxSubject.Text,
+            Body = textBoxBody.Text,
+            From = new MailAddress(user),
         };
+        message.To.Add(textBoxTo.Text);
 
+        var client = new System.Net.Mail.SmtpClient(host, 587);
+        client.Credentials = new NetworkCredential(user, pass);
+        client.EnableSsl = true;
+        client.UseDefaultCredentials = false;
 
-        //var client = new SmtpClient(host , 587);
-        //client.Credentials = new NetworkCredential(user, pass);
-        //client.EnableSsl = true;
-        //client.UseDefaultCredentials = false;
-
-        //client.Send(message);
-
-        using (var client = new SmtpClient())
-        {
-            client.Connect(host, 587, false);
-
-            // Note: only needed if the SMTP server requires authentication
-            client.Authenticate(user, pass);
-
-            client.Send(message);
-            client.Disconnect(true);
-        }
+        client.Send(message);
+        
 
 
     }
